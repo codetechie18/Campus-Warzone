@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Form</title>
+    <style>
+        /* General input styles */
+        input[type="text"],
+        input[type="email"],
+        input[type="button"] {
+            width: 30%; /* Full width */
+            padding: 10px; /* Comfortable padding */
+            margin: 10px 0; /* Space between inputs */
+            font-size: 16px; /* Easy-to-read text size */
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding and border in element's total width */
+            outline: none; /* Remove default outline */
+            transition: 0.3s ease; /* Smooth hover and focus transition */
+        }
+        /* Input hover effect */
+        input[type="text"]:hover,
+        input[type="email"]:hover {
+            border-color: #777; /* Darker border on hover */
+        }
+        /* Input focus effect */
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            border-color: #007BFF; /* Blue border on focus */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle blue glow */
+        }
+        /* Submit button styling */
+        input[type="button"] {
+            background-color: #007BFF; /* Blue background */
+            color: white; /* White text */
+            font-weight: bold; /* Bold text for button */
+            cursor: pointer; /* Pointer cursor */
+            border: none; /* Remove border */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+        /* Submit button hover effect */
+        input[type="button"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        /* Center the form */
+        form {
+            text-align: center;
+            margin: 50px auto;
+        }
+        .form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div class="inputbox">
+                <input type="text" id="username" required>
+                <span>Team Name</span>
+            </div>
+            <div class="inputbox">
+                <input type="email" id="email" required>
+                <span>Email</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="phone" required>
+                <span>Phone Number</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="player" required>
+                <span>Player 1</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="playert" required>
+                <span>Player 2</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="playertr" required>
+                <span>Player 3</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="playerf" required>
+                <span>Player 4</span>
+            </div>
+            <input type="button" value="Submit" id="submit">
+        </form>
+    </div>
+
+    <!-- Firebase App -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA91KR6XN-tDs1CBbBcYo7AGXEGhaErmSQ",
+            authDomain: "warezonereal.firebaseapp.com",
+            databaseURL: "https://warezonereal-default-rtdb.firebaseio.com", // Added database URL
+            projectId: "warezonereal",
+            storageBucket: "warezonereal.appspot.com", // Fixed the storage bucket URL
+            messagingSenderId: "82417617798",
+            appId: "1:82417617798:web:03adf24b3d4ae13813fa07"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Submit button event listener
+        document.getElementById("submit").addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const player1 = document.getElementById("player").value;
+            const player2 = document.getElementById("playert").value;
+            const player3 = document.getElementById("playertr").value;
+            const player4 = document.getElementById("playerf").value;
+
+            // Check if all fields are filled
+            if (username && email && phone && player1 && player2 && player3 && player4) {
+                set(ref(db, "teams/" + username), {
+                    username: username,
+                    email: email,
+                    phoneNumber: phone,
+                    player1: player1,
+                    player2: player2,
+                    player3: player3,
+                    player4: player4
+                })
+                .then(() => {
+                    alert("You have successfully registered!");
+                    document.getElementById("registrationForm").reset(); // Reset form
+                })
+                .catch((error) => {
+                    console.error("Error writing to database:", error);
+                    alert("Failed to submit data.");
+                });
+            } else {
+                alert("Please fill in all fields.");
+            }
+        });
+    </script>
+</body>
+</html>
