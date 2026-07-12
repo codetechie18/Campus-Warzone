@@ -1,21 +1,22 @@
-body {
+.register-page-body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url("register_bg.jpg");
-  height: 120vh;
+  background: url("/images/backgrounds/register_bg.jpg") no-repeat center center/cover;
+  min-height: 100vh;
   width: 100vw;
   color: #f2f2f2;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  box-sizing: border-box;
+  padding: 80px 20px 40px 20px;
 }
 
-body::before {
+.register-page-body::before {
   content: '';
-  background: url(drop.png) no-repeat right bottom;
-  background-size: 40%;  
+  background: url("/images/ui/drop.png") no-repeat right bottom;
+  background-size: 20%;  
   position: absolute;
   bottom: 10px;
   right: 10px;

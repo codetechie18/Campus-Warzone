@@ -248,7 +248,7 @@ nav ul li a:hover::after {
  
 
 #section1 {
-  background-image: url('home.png');
+  background-image: url('/images/backgrounds/home.png');
   background-size: cover;
   background-position: center; 
 }
@@ -608,7 +608,7 @@ animation-delay: 4.2s;
   }
 
 #section2 {
-  background-image: url('destop-4.png');
+  background-image: url('/images/backgrounds/destop-4.png');
   background-position: bottom bottom;
   background-size: cover;
   background-position: center;
@@ -621,7 +621,7 @@ animation-delay: 4.2s;
 }
  
 #section3  {
-  background-image: url("About.png");
+  background-image: url("/images/backgrounds/About.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -805,7 +805,7 @@ animation-delay: 4.2s;
 
 
 #section4 {
-    background-image: url('desktop3.jpg');
+    background-image: url('/images/backgrounds/desktop3.jpg');
   }
   
   .gamers {
@@ -891,7 +891,7 @@ animation-delay: 4.2s;
 
 
 #section5 {
-  background-image: url("desktop5.jpg");
+  background-image: url("/images/backgrounds/desktop5.jpg");
   width: 100vw;
   height: 140vh;
    
@@ -982,7 +982,7 @@ h1{
 #section6 {
   margin: 0;
   padding: 0;
-  background-image: url("Desktop 6.png");
+  background-image: url("/images/backgrounds/Desktop 6.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;  
@@ -1457,7 +1457,7 @@ a {
 
 
 #section7 {
-  background-image: url("survive.png");
+  background-image: url("/images/backgrounds/survive.png");
 }
 
 /* Basic footer styling */
@@ -1581,5 +1581,523 @@ footer {
   }
 }
 
+/* Navbar button style mapping */
+.nav-link-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #bdcf32 !important;
+  font-size: 1.2em !important;
+  font-family: 'Oxanium', cursive !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out !important;
+  position: relative !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
+.nav-link-btn:hover {
+  color: #fff !important;
+  text-shadow: 0px 0px 10px #bdcf32 !important;
+}
 
+.nav-link-btn::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: #bdcf32 !important;
+  bottom: -4px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  transition: width 0.3s ease-in-out !important;
+}
+
+.nav-link-btn:hover::after {
+  width: 100% !important;
+}
+
+/* Stay Page Styles */
+.stay-body {
+  background: url('/images/backgrounds/desktop3.jpg') no-repeat center center/cover !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  color: white !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.stay-container {
+  background: rgba(0, 0, 0, 0.9) !important;
+  padding: 40px 30px !important;
+  border-radius: 10px !important;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.6) !important;
+  max-width: 90% !important;
+}
+
+.stay-container h1 {
+  font-size: 3rem !important;
+  margin-bottom: 20px !important;
+  color: #ffe017 !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 768px) {
+  .stay-container h1 {
+    font-size: 2rem !important;
+  }
+}
+
+/* Fire Page Styles */
+.fire-page-body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Oxanium', sans-serif !important;
+  background: radial-gradient(circle at center, #1b1b22 0%, #0c0c0e 100%) !important;
+  color: #fff !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  padding: 100px 20px 40px 20px !important;
+}
+
+.fire-page-body .form-container {
+  width: 100% !important;
+  max-width: 800px !important;
+  background: rgba(15, 15, 18, 0.85) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 2px solid #d2ac25 !important;
+  border-radius: 15px !important;
+  padding: 40px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(210, 172, 37, 0.2) !important;
+  box-sizing: border-box !important;
+}
+
+.fire-page-body h2 {
+  text-align: center !important;
+  font-size: 2.2rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 30px !important;
+  color: #d2ac25 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px rgba(210, 172, 37, 0.4) !important;
+  border-bottom: 2px dashed rgba(210, 172, 37, 0.3) !important;
+  padding-bottom: 15px !important;
+}
+
+.fire-page-body .form-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 25px !important;
+  margin-bottom: 30px !important;
+}
+
+@media (max-width: 768px) {
+  .fire-page-body .form-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+  }
+  .fire-page-body .form-container {
+      padding: 25px 20px !important;
+  }
+  .fire-page-body h2 {
+      font-size: 1.7rem !important;
+  }
+}
+
+.fire-page-body .inputbox {
+  position: relative !important;
+  width: 100% !important;
+}
+
+.fire-page-body .inputbox input {
+  width: 100% !important;
+  padding: 12px 15px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 5px !important;
+  font-size: 1rem !important;
+  color: #fff !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Oxanium', sans-serif !important;
+}
+
+.fire-page-body .inputbox span {
+  position: absolute !important;
+  left: 15px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 1rem !important;
+  pointer-events: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.fire-page-body .inputbox input:focus,
+.fire-page-body .inputbox input:valid {
+  border-color: #d2ac25 !important;
+  background: rgba(210, 172, 37, 0.05) !important;
+  box-shadow: 0 0 8px rgba(210, 172, 37, 0.3) !important;
+}
+
+.fire-page-body .inputbox input:focus ~ span,
+.fire-page-body .inputbox input:valid ~ span {
+  top: -10px !important;
+  left: 10px !important;
+  font-size: 0.85rem !important;
+  color: #d2ac25 !important;
+  background: #0f0f12 !important;
+  padding: 0 5px !important;
+  font-weight: 600 !important;
+}
+
+.fire-page-body .btn-submit-container {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.fire-page-body input[type="submit"] {
+  background-image: linear-gradient(to right, #d2ac25, #9e7f16) !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  font-size: 1.1rem !important;
+  text-transform: uppercase !important;
+  padding: 12px 40px !important;
+  border: none !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  max-width: 250px !important;
+  clip-path: polygon(0% 0%, 90% 0, 100% 30%, 100% 100%, 0 100%) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(210, 172, 37, 0.4) !important;
+  font-family: 'Oxanium', sans-serif !important;
+}
+
+.fire-page-body input[type="submit"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(210, 172, 37, 0.6) !important;
+  filter: brightness(1.1) !important;
+}
+
+/* ==========================================
+   Comprehensive Responsive Overrides (Mobile & Tablet)
+   ========================================== */
+@media (max-width: 991px) {
+  /* Navbar */
+  .nav1 {
+    height: auto !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    border-radius: 0 0 15px 15px !important;
+    padding: 10px 15px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+  }
+  
+  .nav1 ul {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .logo3, .logo4 {
+    position: static !important;
+    display: inline-block !important;
+    transform: none !important;
+  }
+
+  .logo3 img {
+    max-width: 50px !important;
+    margin: 0 5px !important;
+    animation: none !important;
+  }
+
+  .logo4 img {
+    max-width: 90px !important;
+    margin: 0 5px !important;
+    animation: none !important;
+  }
+
+  nav ul li {
+    margin: 0 4px !important;
+    animation: none !important;
+  }
+
+  nav ul li a, .nav-link-btn {
+    font-size: 0.9em !important;
+  }
+
+  #muteUnmuteBtn {
+    padding-right: 0 !important;
+    font-size: 1.1em !important;
+  }
+
+  .btn {
+    min-width: 100px !important;
+    height: 36px !important;
+    padding-inline: 15px !important;
+    font-size: 0.85em !important;
+    animation: none !important;
+  }
+
+  /* Page Sections (General) */
+  .landing, .page {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 80px 15px 40px 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Empty pages (Sections 2 and 7) */
+  #section2, #section7 {
+    height: 50vh !important;
+    min-height: 350px !important;
+  }
+
+  /* Section 1 (Landing Content) */
+  #section1 {
+    justify-content: flex-start !important;
+    padding-top: 140px !important;
+    gap: 20px !important;
+  }
+
+  .heading, .subhead, .logo, .plane, .para, .pp, .ppp {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 10px auto !important;
+    animation: none !important;
+  }
+
+  .heading img {
+    width: 90% !important;
+    max-width: 280px !important;
+    height: auto !important;
+  }
+
+  .subhead img {
+    width: 80% !important;
+    max-width: 220px !important;
+    height: auto !important;
+  }
+
+  .logo img {
+    width: 95% !important;
+    max-width: 320px !important;
+    height: auto !important;
+  }
+
+  .plane img, .para img, .pp img, .ppp img {
+    max-width: 90px !important;
+    height: auto !important;
+  }
+
+  /* Section 3 (About Us) */
+  #section3 {
+    justify-content: flex-start !important;
+    gap: 25px !important;
+  }
+
+  .girl, .girl.scrolled,
+  .sqad, .sqad.scrolled,
+  .info, .info.scrolled {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 10px auto !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .girl img, .sqad img, .info img {
+    max-width: 80% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .box {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 10px auto !important;
+    width: 95% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    padding: 15px 20px !important;
+    font-size: 1.1em !important;
+    border-radius: 8px !important;
+  }
+
+  .box-container, .box-containerr {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    margin: 10px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .black-box, .black-box.scrolled,
+  .black-box2, .black-box2.scrolled {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    opacity: 1 !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+
+  /* Section 4 (Battle Details) */
+  #section4 {
+    justify-content: flex-start !important;
+    gap: 20px !important;
+  }
+
+  .gamers, .gamers.scrolled,
+  .danger,
+  .battel, .battel.scrolled,
+  .battel-box {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 10px auto !important;
+    width: 95% !important;
+    max-width: 480px !important;
+    opacity: 1 !important;
+  }
+
+  .gamers img, .danger img, .battel img {
+    max-width: 60% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .battel-box {
+    box-sizing: border-box !important;
+    padding: 15px !important;
+    font-size: 1.1em !important;
+  }
+
+  /* Section 5 (Casters) */
+  #section5 {
+    justify-content: flex-start !important;
+    gap: 25px !important;
+  }
+
+  .booster, .Dou {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 35% !important;
+    max-width: 120px !important;
+    margin: 0 auto !important;
+  }
+
+  .container1, .container2 {
+    position: relative !important;
+    margin: 0 auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .blur-box1 {
+    top: auto !important;
+    margin: 10px !important;
+    width: 240px !important;
+    height: 330px !important;
+  }
+
+  /* Section 6 (Organizers) */
+  #section6 {
+    justify-content: flex-start !important;
+    gap: 25px !important;
+  }
+
+  .Orgnizer, .support {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 40% !important;
+    max-width: 160px !important;
+    margin: 0 auto !important;
+  }
+
+  .info-2 {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 95% !important;
+    margin: 0 auto !important;
+    font-size: 1.05em !important;
+  }
+
+  .container {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+
+  .blur-box {
+    top: auto !important;
+    margin: 10px !important;
+    width: 240px !important;
+    height: 330px !important;
+  }
+
+  .Core_Team {
+    position: relative !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+  }
+}
