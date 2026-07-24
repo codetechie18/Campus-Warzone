@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <div className="nav1">
       <nav className="navbar" data-navbar>
-        <ul className="navbar-list">
+        <div className="navbar-list">
           <Link to="/" className="logo3">
             <img src="/images/logos/ghriet.webp" alt="GHRiet Logo" />
           </Link>
@@ -56,23 +56,17 @@ const Navbar = () => {
             <img src="/images/logos/BGMI.png" alt="BGMI Logo" />
           </div>
           
-          <li>
+          <div className="nav-links-wrapper">
             <button className="nav-link-btn" onClick={() => handleNavClick('section1')}>
               Home
             </button>
-          </li>
-          <li>
             <button className="nav-link-btn" onClick={() => handleNavClick('section3')}>
               About Us
             </button>
-          </li>
-          <li>
             <button className="nav-link-btn" onClick={() => handleNavClick('section6')}>
               Leaders
             </button>
-          </li>
 
-          <li>
             <button 
               id="muteUnmuteBtn" 
               onClick={toggleMute} 
@@ -80,12 +74,10 @@ const Navbar = () => {
             >
               <span id="icon">{isMuted ? '🔇' : '🔊'}</span>
             </button>
-          </li>
-          
-          <li>
+            
             <Link to="/register" className="btn" data-btn>Register</Link>
-          </li>
-        </ul>
+          </div>
+        </div>
       </nav>
 
       {/* Persistent Audio Tag */}

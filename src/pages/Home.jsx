@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -117,82 +117,91 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 2: Empty Spacer */}
+      {/* Section 2: Spacer Banner */}
       <section id="section2" className="page"></section>
 
       {/* Section 3: About Us */}
       <section id="section3" className="page">
-        <div className="girl">
-          <img src="/images/icons/about us .png" alt="About Us Banner" />
+        <div className="about-grid">
+          <div className="about-graphic-side">
+            <div className="girl">
+              <img src="/images/icons/about us .png" alt="About Us Banner" />
+            </div>
+            <div className="sqad">
+              <img src="/images/icons/ab sqad.png" alt="Squad Info" />
+            </div>
+          </div>
+          <p className="box">
+            Gear up for the ultimate BGMI showdown at our college! This event 
+            will bring together the best players from across the campus to test
+            their skills in the most exciting battle royale action. Whether you're a 
+            veteran player with years of experience or a newcomer looking to prove your abilities,
+            this is the perfect opportunity to showcase your gaming prowess. Strategize with your squad,
+            master the map, and compete for amazing prizes that will make your victory even sweeter. With intense battles,
+            unexpected twists, and fierce competition, this event promises to be full of adrenaline-pumping moments and unforgettable
+            experiences. Don't miss out on the chance to be part of the action—gather your squad, register now, and claim your shot at glory!
+            Prepare for a journey that will push your skills to the limit and leave you with memories to cherish forever.
+          </p>
         </div>
-        <p className="box">
-          Gear up for the ultimate BGMI showdown at our college! This event 
-          will bring together the best players from across the campus to test
-          their skills in the most exciting battle royale action. Whether you're a 
-          veteran player with years of experience or a newcomer looking to prove your abilities,
-          this is the perfect opportunity to showcase your gaming prowess. Strategize with your squad,
-          master the map, and compete for amazing prizes that will make your victory even sweeter. With intense battles,
-          unexpected twists, and fierce competition, this event promises to be full of adrenaline-pumping moments and unforgettable
-          experiences. Don't miss out on the chance to be part of the action—gather your squad, register now, and claim your shot at glory!
-          Prepare for a journey that will push your skills to the limit and leave you with memories to cherish forever.
-        </p>
 
-        <div className="sqad">
-          <img src="/images/icons/ab sqad.png" alt="Squad Info" />
-        </div>
-        
-        <div className="info">
-          <img src="/images/icons/t info.png" alt="Tournament Info" />
-        </div>
-
-        <div className="box-container">
-          <div className="black-box">
-            <u><h2>Group A</h2></u>
-            <p>Time: 12:00 PM</p>
-            <p>Maps: ERANGEL, MIRAMAR, SANHOK</p>
+        <div className="about-info-header">
+          <div className="info">
+            <img src="/images/icons/t info.png" alt="Tournament Info" />
           </div>
         </div>
-        
-        <div className="box-containerr">
+
+        <div className="groups-container">
+          <div className="black-box">
+            <h2>Group A</h2>
+            <p>Time: <strong>12:00 PM</strong></p>
+            <p>Maps: <strong>ERANGEL, MIRAMAR, SANHOK</strong></p>
+          </div>
           <div className="black-box2">
-            <u><h2>Group B</h2></u>
-            <p>Time: 12:00 PM</p>
-            <p>Maps: ERANGEL, MIRAMAR, VIKENDI</p>
+            <h2>Group B</h2>
+            <p>Time: <strong>12:00 PM</strong></p>
+            <p>Maps: <strong>ERANGEL, MIRAMAR, VIKENDI</strong></p>
           </div>
         </div>
       </section>
 
       {/* Section 4: Battle Info */}
       <section id="section4" className="page">
-        <div className="gamers">
-          <img src="/images/icons/100+.png" alt="100+ Gamers" />
-        </div>
+        <div className="battle-grid">
+          <div className="battle-visual-side">
+            <div className="gamers">
+              <div className="danger">
+                <img src="/images/icons/danger.png" alt="Danger Zones" />
+              </div>
+              <img src="/images/icons/100+.png" alt="100+ Gamers" />
+            </div>
+            <div className="battel">
+              <img src="/images/icons/battel.png" alt="Battle Details" />
+            </div>
+          </div>
 
-        <div className="danger">
-          <img src="/images/icons/danger.png" alt="Danger Zones" />
-        </div>
-           
-        <div className="battel">
-          <img src="/images/icons/battel.png" alt="Battle Details" />
-        </div>
-
-        <div className="battel-box">
-          <p>
-            "The wait is finally over! Get ready for an unforgettable e-sports experience. 
-            Gear up and step into the battleground where the best players will compete for glory.
-            Whether you're a seasoned pro or a newcomer, this thrilling event is your chance to showcase your 
-            skills, join your squad, and dominate the competition. The battleground awaits—let's make this a showdown to remember!"
-          </p>
+          <div className="battel-box">
+            <p>
+              "The wait is finally over! Get ready for an unforgettable e-sports experience. 
+              Gear up and step into the battleground where the best players will compete for glory.
+              Whether you're a seasoned pro or a newcomer, this thrilling event is your chance to showcase your 
+              skills, join your squad, and dominate the competition. The battleground awaits—let's make this a showdown to remember!"
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Section 5: Casters & Streamers */}
       <section id="section5" className="page">
-        <div className="booster">
-          <img src="/images/icons/Booster.png" alt="Booster" />
+        <div className="casters-header">
+          <div className="booster">
+            <img src="/images/icons/Booster.png" alt="Booster" />
+          </div>
+          <div className="Dou">
+            <img src="/images/icons/duo.png" alt="Duo Modes" />
+          </div>
         </div>
       
-        <div className="container2">
+        <div className="casters-container">
           <div className="blur-box1 box-6">
             <img src="/images/team/talk_with_viru.jpg" alt="Viru" className="centered-image" />
             <h1>talk_with_viru</h1>
@@ -202,9 +211,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-        </div>
-        
-        <div className="container1">
+
           <div className="blur-box1 box-4">
             <img src="/images/team/caster1.png" alt="Harsh" className="centered-image" />
             <h1>Harsh</h1>
@@ -214,6 +221,7 @@ const Home = () => {
               </a>
             </div>
           </div>
+
           <div className="blur-box1 box-5">
             <img src="/images/team/caster2.png" alt="Sneha" className="centered-image" />
             <h1>Sneha</h1>
@@ -224,16 +232,17 @@ const Home = () => {
             </div>
           </div>
         </div>
-        
-        <div className="Dou">
-          <img src="/images/icons/duo.png" alt="Duo Modes" />
-        </div>
       </section>
 
       {/* Section 6: Organizers & Core Team */}
       <section id="section6" className="page">
-        <div className="Orgnizer">
-          <img src="/images/icons/Orgnizer.png" alt="Organizer Title" />
+        <div className="organizers-header">
+          <div className="Orgnizer">
+            <img src="/images/icons/Orgnizer.png" alt="Organizer Title" />
+          </div>
+          <div className="support">
+            <img src="/images/icons/support.png" alt="Support Title" />
+          </div>
         </div>
 
         <div className="info-2">
@@ -246,7 +255,7 @@ const Home = () => {
           </p>
         </div>
         
-        <div className="container">
+        <div className="organizers-container">
           <div className="blur-box box-1">
             <img src="/images/team/pranav.jpg" alt="Pranav Tekade" className="centered-image" />
             <h1>Pranav Tekade</h1>
@@ -286,10 +295,6 @@ const Home = () => {
             </div>
           </div>
         </div> 
-
-        <div className="support">
-          <img src="/images/icons/support.png" alt="Support" />
-        </div>
 
         <article className="Core_Team">
           <div className="marquee marquee--reverse">
@@ -398,7 +403,7 @@ const Home = () => {
         </article>
       </section>
 
-      {/* Section 7: Empty Spacer */}
+      {/* Section 7: Bottom Banner */}
       <section id="section7" className="page"></section>
     </>
   );

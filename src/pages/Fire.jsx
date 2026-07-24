@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from 'firebase/database';
+import '../register.css';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -18,6 +19,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 const Fire = () => {
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -28,10 +30,17 @@ const Fire = () => {
     playerf: ''
   });
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2200);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -47,7 +56,8 @@ const Fire = () => {
         player1: player,
         player2: playert,
         player3: playertr,
-        player4: playerf
+        player4: playerf,
+        submittedAt: new Date().toISOString()
       })
       .then(() => {
         alert("You have successfully registered!");
@@ -71,87 +81,121 @@ const Fire = () => {
   };
 
   return (
-    <div className="fire-page-body">
-      <div className="form-container">
-        <h2>Registration Form</h2>
-        <form onSubmit={handleSubmit} id="registrationForm">
-          <div className="form-grid">
-            <div className="inputbox">
-              <input 
-                type="text" 
-                id="username" 
-                value={formData.username} 
-                onChange={handleChange} 
-                required 
-              />
-              <span>Team Name</span>
+    <div className="register-page-body">
+      {loading && (
+        <div id="loader" style={{ transition: 'all 0.7s ease', top: loading ? '0' : '-100%' }}>
+          <div className="text-container">
+            <div className="preloader">
+              <div className="text-wrapper">
+                <div className="text">
+                  <span className="left" style={{ opacity: 1 }}>REGI</span>
+                  <span className="right" style={{ opacity: 1 }}>STER</span>
+                </div>
+              </div>
+              <div className="text-wrapper">
+                <div className="text text-bottom">
+                  <span className="up" style={{ opacity: 1 }}>YOUR</span>
+                  <span className="up" style={{ opacity: 1 }}>TEAM</span>
+                </div>
+              </div>
             </div>
-            <div className="inputbox">
+          </div>
+        </div>
+      )}
+
+      <form className="container" onSubmit={handleSubmit}>
+        <h1 className="form-title">Online Registration</h1>
+        <div className="form-wrapper">
+          {/* Left Side */}
+          <div className="left-form">
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
               <input 
                 type="email" 
                 id="email" 
+                name="email" 
                 value={formData.email} 
                 onChange={handleChange} 
                 required 
               />
-              <span>Email</span>
             </div>
-            <div className="inputbox">
+            <div className="form-group">
+              <label htmlFor="phone">Mobile Number</label>
               <input 
-                type="text" 
+                type="tel" 
                 id="phone" 
+                name="phone" 
                 value={formData.phone} 
                 onChange={handleChange} 
                 required 
               />
-              <span>Phone Number</span>
             </div>
-            <div className="inputbox">
+            <div className="form-group">
+              <label htmlFor="username">Team Name</label>
+              <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                value={formData.username} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="right-form">
+            <div className="form-group">
+              <label htmlFor="player">Player 1 Name (Leader)</label>
               <input 
                 type="text" 
                 id="player" 
+                name="player" 
                 value={formData.player} 
                 onChange={handleChange} 
                 required 
               />
-              <span>Player 1 (Leader)</span>
             </div>
-            <div className="inputbox">
+            <div className="form-group">
+              <label htmlFor="playert">Player 2 Name</label>
               <input 
                 type="text" 
                 id="playert" 
+                name="playert" 
                 value={formData.playert} 
                 onChange={handleChange} 
                 required 
               />
-              <span>Player 2</span>
             </div>
-            <div className="inputbox">
+            <div className="form-group">
+              <label htmlFor="playertr">Player 3 Name</label>
               <input 
                 type="text" 
                 id="playertr" 
+                name="playertr" 
                 value={formData.playertr} 
                 onChange={handleChange} 
                 required 
               />
-              <span>Player 3</span>
             </div>
-            <div className="inputbox">
+            <div className="form-group">
+              <label htmlFor="playerf">Player 4 Name</label>
               <input 
                 type="text" 
                 id="playerf" 
+                name="playerf" 
                 value={formData.playerf} 
                 onChange={handleChange} 
                 required 
               />
-              <span>Player 4</span>
             </div>
           </div>
-          <div className="btn-submit-container">
-            <input type="submit" value="Submit" id="submit-btn" />
-          </div>
-        </form>
-      </div>
+        </div>
+      
+        <div className="pay-now">
+          <button type="submit">Submit Registration</button>
+        </div>
+      </form>
     </div>
   );
 };

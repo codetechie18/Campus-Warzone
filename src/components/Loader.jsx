@@ -12,16 +12,23 @@ const Loader = () => {
   }, []);
 
   return (
-    <div id="loader" style={{ top: visible ? '0' : '-100%' }}>
+    <div 
+      id="loader" 
+      style={{ 
+        transform: visible ? 'translateY(0)' : 'translateY(-100%)',
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none'
+      }}
+    >
       <div className="text-container">
         <svg
           className="text-stroke"
-          viewBox="0 0 900 100"
-          width="80%"
+          viewBox="0 0 1000 150"
+          width="90%"
           height="100%"
         >
-          <text className="text1" x="10%" y="45%">CAMPUS WARZONE</text>
-          <text className="text2" x="22%" y="110">GHR SPECIAL</text>
+          <text className="text1" x="50%" y="55" textAnchor="middle">CAMPUS WARZONE</text>
+          <text className="text2" x="50%" y="130" textAnchor="middle">GHR SPECIAL</text>
         </svg>
       </div>
     </div>
