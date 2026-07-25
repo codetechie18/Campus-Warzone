@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMuted, setIsMuted] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const audioRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -17,6 +18,16 @@ const Navbar = () => {
         .catch((err) => {
           console.warn('Autoplay blocked or failed:', err);
         });
+    }
+
+    // Load initial theme from localStorage or default to dark
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      setIsDarkMode(false);
+      document.body.classList.add('light-mode');
+    } else {
+      setIsDarkMode(true);
+      document.body.classList.remove('light-mode');
     }
   }, []);
 
@@ -33,6 +44,18 @@ const Navbar = () => {
     }
   };
 
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      document.body.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
+      setIsDarkMode(false);
+    } else {
+      document.body.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
+      setIsDarkMode(true);
+    }
+  };
+
   const handleNavClick = (sectionId) => {
     if (location.pathname === '/') {
       const element = document.getElementById(sectionId);
@@ -45,38 +68,49 @@ const Navbar = () => {
   };
 
   return (
-    <div className="nav1">
-      <nav className="navbar" data-navbar>
-        <div className="navbar-list">
-          <Link to="/" className="logo3">
-            <img src="/images/logos/ghriet.webp" alt="GHRiet Logo" />
-          </Link>
-          
-          <div className="logo4">
-            <img src="/images/logos/BGMI.png" alt="BGMI Logo" />
+    <div className="nav-container">
+      <nav className="navbar">
+        {/* Logo and Branding */}
+        <Link to="/" className="navbar-logo" onClick={() => handleNavClick('hero')}>
+          <img src="/images/logos/warzonelogo.png" alt="Campus Warzone Logo" className="logo-img" />
+          <div className="logo-text">
+            <span>CAMPUS</span>
+            <span className="gold">WARZONE</span>
           </div>
-          
-          <div className="nav-links-wrapper">
-            <button className="nav-link-btn" onClick={() => handleNavClick('section1')}>
-              Home
-            </button>
-            <button className="nav-link-btn" onClick={() => handleNavClick('section3')}>
-              About Us
-            </button>
-            <button className="nav-link-btn" onClick={() => handleNavClick('section6')}>
-              Leaders
-            </button>
+        </Link>
 
-            <button 
-              id="muteUnmuteBtn" 
-              onClick={toggleMute} 
-              aria-label={isMuted ? 'Unmute Sound' : 'Mute Sound'}
-            >
-              <span id="icon">{isMuted ? '🔇' : '🔊'}</span>
-            </button>
-            
-            <Link to="/register" className="btn" data-btn>Register</Link>
-          </div>
+        {/* Navigation Links */}
+        <div className="navbar-links">
+          <button className="nav-link active" onClick={() => handleNavClick('hero')}>HOME</button>
+          <button className="nav-link" onClick={() => handleNavClick('tournaments')}>TOURNAMENTS</button>
+          <button className="nav-link" onClick={() => handleNavClick('stats')}>LEADERBOARD</button>
+          <button className="nav-link" onClick={() => handleNavClick('stats')}>TEAMS</button>
+          <button className="nav-link" onClick={() => handleNavClick('sponsors')}>SPONSORS</button>
+          <button className="nav-link" onClick={() => handleNavClick('about')}>ABOUT US</button>
+        </div>
+
+        {/* Action Controls */}
+        <div className="navbar-actions">
+          {/* Mute/Unmute Audio */}
+          <button 
+            className="action-btn mute-btn" 
+            onClick={toggleMute} 
+            aria-label={isMuted ? 'Unmute Sound' : 'Mute Sound'}
+          >
+            {isMuted ? <i className="fas fa-volume-mute"></i> : <i className="fas fa-volume-up"></i>}
+          </button>
+
+          {/* Light/Dark Toggle */}
+          <button 
+            className="action-btn theme-btn" 
+            onClick={toggleTheme} 
+            aria-label="Toggle Theme"
+          >
+            {isDarkMode ? <i className="fas fa-sun"></i> : <i className="fas fa-moon"></i>}
+          </button>
+
+          {/* Login/Signup */}
+          <Link to="/register" className="login-btn">LOGIN / SIGNUP</Link>
         </div>
       </nav>
 
@@ -93,3 +127,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
